@@ -1,0 +1,24 @@
+<h1><strong>My Tasks</strong></h1>
+
+<ul>
+  <% @tasks.each do |task| %>
+    <li style= list-style:none>
+      <% if task.complete == true %>
+        <%= check_box_tag 'task_ids[]', task.id,  {checked: true} -%>
+        <%= link_to task.title, task_path(task) %>
+        <%= link_to 'Delete', task_path(task), method: :delete %>
+      <% else %>
+        <%= check_box_tag 'task_ids[]', task.id -%>
+        <%= link_to task.title, task_path(task) %>
+        <%= link_to 'Delete', task_path(task), method: :delete %>
+      <% end %>
+    </li>
+  <% end %>
+  <p> <%= link_to '+ Create new Task', new_task_path %></p>
+</ul>
+
+
+
+
+
+

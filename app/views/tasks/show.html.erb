@@ -1,0 +1,29 @@
+
+<h1><strong>Show task</strong></h1>
+
+<body>
+  <p>
+  <%= @tasks.title %>
+  </p>
+  <p>
+  <%= @tasks.details %>
+  </p>
+
+  <p>
+  <% if @tasks.complete == true %>
+    <%= check_box_tag 'task_ids[]', @tasks.id,  {checked: true} -%>
+    <%= 'Task complete' %>
+    <% else %>
+    <%= check_box_tag 'task_ids[]', @tasks.id -%>
+    <%= 'Task is not complete' %>
+    <% end %>
+  </p>
+
+  <%= link_to 'Go back', tasks_path %>
+
+  <br>
+
+  <%= link_to 'edit', edit_task_path %>
+</body>
+
+
